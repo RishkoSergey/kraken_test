@@ -22,9 +22,11 @@ export default {
       let newPairs = [];
       for (let i = 0; i < pairs.length; i++){
         let pair = {};
-        pair.name = Object.keys(pairs[i].data.result)[0];
+        pair.pair_name = Object.keys(pairs[i].data.result)[0].substring(0,3) 
+          + ' - ' + Object.keys(pairs[i].data.result)[0].substring(3);
         pair.ask = pairs[i].data.result[Object.keys(pairs[i].data.result)[0]].a[0];
         pair.bid = pairs[i].data.result[Object.keys(pairs[i].data.result)[0]].b[0];
+
         newPairs[i] = pair;
       }
       state.pairs = newPairs;
