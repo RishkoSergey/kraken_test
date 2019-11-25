@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Kraken Test</h2>
+    <b-table striped hover :items="allPairs" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data: () => ({
+    pairNames: [ 'ADACAD', 'ADAETH', 'ADAEUR', 'ADAUSD', 'ADAXBT' ]
+  }),
+  computed: mapGetters(['allPairs']),
+  methods: mapActions(['getPairs']),
+  async mounted() {
+    this.getPairs(this.pairNames);
   }
 }
 </script>
@@ -25,4 +30,24 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.cell1 {
+  position: absolute;
+  float: left;
+  margin-left: 30px;
+  width: 50px;
+}
+.cell2 {
+  position: absolute;
+  float: left;
+  margin-left: 120px;
+  width: 50px;
+}
+.cell2 {
+  position: absolute;
+  float: left;
+  margin-left: 320px;
+  width: 50px;
+}
+
+
 </style>
