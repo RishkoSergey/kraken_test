@@ -10,13 +10,10 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'app',
-  data: () => ({
-    pairNames: [ 'ADACAD', 'ADAETH', 'ADAEUR', 'ADAUSD', 'ADAXBT' ]
-  }),
   computed: mapGetters(['allPairs']),
   methods: mapActions(['getPairs']),
   async mounted() {
-    this.getPairs(this.pairNames);
+    this.getPairs();
   }
 }
 </script>
